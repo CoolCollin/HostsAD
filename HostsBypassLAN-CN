@@ -1,0 +1,118 @@
+
+// Section names such as "DnsServer", "DnsRule" are all case-insensitive.
+// All empty lines and whitespaces will be omitted, comment lines are
+// start with `//`, inline comments are start with `#`, all characters
+// after `#` will be treated as comments.
+ 
+ 
+[Rule]
+// [Rule] is equalient to [RoutingRule]
+// Rules better group by their types (DOMAIN/IP/USER-AGENT)
+// and targets (PROXY/DIRECT/REJECT) for better performance.
+//
+// ==== block rules ====
+//
+//DOMAIN-KEYWORD,geosite:category-ads-all,REJECT
+ 
+// ==== prioritized proxy rules ====
+# DNS
+IP-CIDR,8.8.8.8/32,PROXY
+IP-CIDR,8.8.4.4/32,PROXY
+IP-CIDR,1.1.1.1/32,PROXY
+IP-CIDR,1.0.0.1/32,PROXY
+IP-CIDR,9.9.9.9/32,PROXY
+IP-CIDR,149.112.112.112/32,PROXY
+IP-CIDR,208.67.222.222/32,PROXY
+IP-CIDR,208.67.220.220/32,PROXY
+
+
+
+ 
+ 
+##################################
+ 
+ 
+##################################
+ // ==== direct rules ====
+//
+
+ 
+#DIRECT
+
+
+# GeoIP China
+GEOIP,cn,DIRECT
+ 
+# Local Area Network
+GEOIP,private,DIRECT
+ 
+ 
+
+
+ 
+##################################
+ 
+# Other requests go through the proxy.
+ 
+// ==== final ====
+FINAL,PROXY
+ 
+ 
+ 
+
+[DnsServer]
+// Format: address,port,tag
+//
+// `tag` is a unique alphanumeric string for each DNS server, it's used for
+// identifying DNS servers by DNS domain rules, it's case-insensitive. `tag`s are
+// only help in the configuration parsing procedure, and won't be used elsewhere.
+//
+// `port` and `tag` could be omitted, means that using the default 53 port
+// and no DNS rules attach to that DNS server.
+//
+// A DNS lookup will perform on DNS servers list below in order until results
+// return, except there is a matching domain rule.
+
+
+ 
+1.2.4.8,53,DRCT
+223.5.5.5,53,DRCT
+223.6.6.6,53,DRCT
+8.8.8.8,53,REMOTE
+8.8.4.4,53,REMOTE
+
+ 
+ 
+[DnsRule]
+DOMAIN-KEYWORD,geosite:cn,DRCT
+DOMAIN-KEYWORD,netflix,REMOTE
+DOMAIN-KEYWORD,nflx,REMOTE
+DOMAIN-KEYWORD,nflxvideo,REMOTE
+DOMAIN-SUFFIX,netflix.com,REMOTE
+DOMAIN-SUFFIX,netflix.net,REMOTE
+DOMAIN-SUFFIX,nflximg.net,REMOTE
+DOMAIN-SUFFIX,nflxvideo.net,REMOTE
+DOMAIN-SUFFIX,nflxso.net,REMOTE
+DOMAIN-SUFFIX,nflxext.com,REMOTE
+DOMAIN-SUFFIX,netflix.com,REMOTE
+DOMAIN-SUFFIX,nflximg.com,REMOTE
+DOMAIN-SUFFIX,nflxvideo.com,REMOTE
+DOMAIN-SUFFIX,nflxso.com,REMOTE
+DOMAIN-SUFFIX,nflxext.ext,REMOTE
+ 
+ 
+[DnsHost]
+// Static DNS map that functions in the same way as /etc/hosts.
+ 
+localhost=127.0.0.1
+www.localnetwork.uop = 127.0.0.1
+ 
+[DnsClientIp]
+ 
+ 
+[RoutingDomainStrategy]
+IPOnDemand
+ 
+[FreedomDomainStrategy]
+AsIs
+ 
