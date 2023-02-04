@@ -41,7 +41,7 @@
 
 127.0.0.1 ssl.google-analytics.com
 
-127.0.0.1 bugsnag.com
+#127.0.0.1 bugsnag.com
 
 127.0.0.1 browser.sentry-cdn.com
 127.0.0.1 app.getsentry.com
