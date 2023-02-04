@@ -24,6 +24,37 @@
 # Contributions by:
 # Kicelo, Dominik Schuermann
  
+ #2023-02-04
+ 
+127.0.0.1 pagead2.googlesyndication.com
+127.0.0.1 adservice.google.com
+127.0.0.1 pagead2.googleadservices.com
+127.0.0.1 doubleclick.net
+
+127.0.0.1 adtago.s3.amazonaws.com
+127.0.0.1 analyticsengine.s3.amazonaws.com
+127.0.0.1 advice-ads.s3.amazonaws.com
+127.0.0.1 affiliationjs.s3.amazonaws.com
+127.0.0.1 advertising-api-eu.amazon.com
+127.0.0.1 amazonaax.com
+127.0.0.1 amazonclix.com
+
+127.0.0.1 ssl.google-analytics.com
+
+127.0.0.1 bugsnag.com
+
+127.0.0.1 browser.sentry-cdn.com
+127.0.0.1 app.getsentry.com
+
+127.0.0.1 ads.facebook.com
+
+127.0.0.1 analytics.tiktok.com
+127.0.0.1 analytics-sg.tiktok.com
+
+127.0.0.1 ads.youtube.com
+
+127.0.0.1 ads.reddit.com
+
  
 # [General]
 127.0.0.1 lb.usemaxserver.de
