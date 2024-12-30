@@ -28,7 +28,7 @@
   #2023-04-20
   127.0.0.1 biggggg.com
  
- 
+
  
  #2023-02-04
  
@@ -3612,5 +3612,6 @@
 127.0.0.1  zy16eoat1w.com
 127.0.0.1  zzhc.vnet.cn
  
- 
+/pagead.js$domain=d3ward.github.io
+/widget/ads.
  
